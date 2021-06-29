@@ -1,0 +1,23 @@
+{
+  "name": "dev-api",
+  "version": "1.0.0",
+  "description": "API para gerenciar um CRUD de desenvolvedores",
+  "main": "src/server.ts",
+  "author": "(rhtua <artoliveira13@gmail.com>)",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "ts-node-dev src/server.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.12",
+    "prettier": "^2.3.2",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^4.28.1",
+    "eslint": "^7.29.0",
+    "express": "^4.17.1"
+  }
+}

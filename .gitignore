@@ -1,0 +1,14 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Editor-based HTTP Client requests
+/httpRequests/
+
+#WebStorm Files
+.idea
+
+#Node Modules in any instance
+**/node_modules/**
+
+

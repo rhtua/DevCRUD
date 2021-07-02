@@ -11,4 +11,7 @@
 #Node Modules in any instance
 **/node_modules/**
 
+#Enviroment Variables
+*.env
+
 

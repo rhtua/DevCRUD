@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
-import { DesenvolvedorRepository } from "../repositories/DesenvolvedorRepository";
-import { Desenvolvedor } from "../entities/desenvolvedor";
+import { DesenvolvedorRepository } from "../business/repositories/DesenvolvedorRepository";
+import { Desenvolvedor } from "../business/entities/Desenvolvedor";
 
 export class ObterDesenvolvedoresService {
   async obterTodos(): Promise<Desenvolvedor[]> {
@@ -9,9 +9,6 @@ export class ObterDesenvolvedoresService {
     );
 
     const desenvolvedores = await desenvolvedorRepository.find();
-    if (desenvolvedores.length == 0) {
-      throw new Error("Nenhum desenvolvedor encontrado");
-    }
 
     return desenvolvedores;
   }

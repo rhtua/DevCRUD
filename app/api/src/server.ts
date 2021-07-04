@@ -1,8 +1,10 @@
-import "./database";
-import "express-async-errors"
-import express, {NextFunction, Request, Response} from "express";
+import "./infra/database";
+import "express-async-errors";
+import express, { NextFunction, Request, Response } from "express";
 import "reflect-metadata";
 import { router } from "./routes";
+import { ErroBase } from "./infra/http/errors/erroBase";
+import { statusHttp } from "./infra/http/statushttp";
 
 const api = express();
 
@@ -11,13 +13,13 @@ api.use(router);
 
 api.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
-    if (err instanceof Error) {
-      return response.status(400).json({
+    if (err instanceof ErroBase) {
+      return response.status(err.statusCode).json({
         error: err.message,
       });
     }
 
-    return response.status(500).json({
+    return response.status(statusHttp.INTERNAL_SERVER).json({
       status: "error",
       message: "Internal Server Error",
     });

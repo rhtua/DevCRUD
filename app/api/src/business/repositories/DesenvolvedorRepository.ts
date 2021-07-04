@@ -1,13 +1,13 @@
 import { EntityRepository, Repository } from "typeorm";
-import { Desenvolvedor } from "../entities/desenvolvedor";
+import { Desenvolvedor } from "../entities/Desenvolvedor";
 
 @EntityRepository(Desenvolvedor)
 class DesenvolvedorRepository extends Repository<Desenvolvedor> {
   async obterPaginado(
     pagina: number,
     limite: number,
-    termo: string,
-    busca: string
+    termo?: string,
+    busca?: string
   ) {
     const query = this.createQueryBuilder("DESENVOLVEDORES");
 
@@ -17,13 +17,12 @@ class DesenvolvedorRepository extends Repository<Desenvolvedor> {
         .orderBy(`${termo}`);
     }
 
-    const registros = await query.getCount();
-
     if (!Number.isNaN(pagina) && !Number.isNaN(limite)) {
       query.skip(limite * (pagina - 1)).take(limite);
     }
-    const resultado = await query.getMany();
-    return { registros, resultado };
+
+    const [desenvolvedores, registros] = await query.getManyAndCount();
+    return { desenvolvedores, registros };
   }
 }
 

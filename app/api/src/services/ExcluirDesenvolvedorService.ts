@@ -1,6 +1,7 @@
-import { DesenvolvedorRepository } from "../repositories/DesenvolvedorRepository";
+import { DesenvolvedorRepository } from "../business/repositories/DesenvolvedorRepository";
 import { getCustomRepository } from "typeorm";
 import { ObterDesenvolvedorService } from "./ObterDesenvolvedorService";
+import { ErroBadRequest } from "../infra/http/errors/erroBadRequest";
 
 export class ExcluirDesenvolvedorService {
   async excluir(id: number) {
@@ -8,8 +9,11 @@ export class ExcluirDesenvolvedorService {
       DesenvolvedorRepository
     );
 
-    const desenvolvedor = await new ObterDesenvolvedorService().obter(id);
-
-    return await desenvolvedorRepository.remove(desenvolvedor);
+    try {
+      const desenvolvedor = await new ObterDesenvolvedorService().obter(id);
+      return await desenvolvedorRepository.remove(desenvolvedor);
+    } catch (err) {
+      throw new ErroBadRequest("Não foi possivel deletar");
+    }
   }
 }

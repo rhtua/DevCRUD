@@ -1,8 +1,8 @@
-import { DesenvolvedorRepository } from "../repositories/DesenvolvedorRepository";
+import { DesenvolvedorRepository } from "../business/repositories/DesenvolvedorRepository";
 import { getCustomRepository } from "typeorm";
-import { validarDesenvolvedor } from "../customValidators/validarDesenvolvedor";
+import { validarDesenvolvedor } from "../business/customValidators/ValidarDesenvolvedor";
 import { ObterDesenvolvedorService } from "./ObterDesenvolvedorService";
-import { Desenvolvedor } from "../entities/desenvolvedor";
+import { Desenvolvedor } from "../business/entities/Desenvolvedor";
 
 export class EditarDesenvolvedorService {
   async editar({ id, nome, dataNascimento, hobby, sexo }: Desenvolvedor) {

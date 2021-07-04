@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { InserirDesenvolvedorService } from "../services/InserirDesenvolvedorService";
-import { Desenvolvedor } from "../entities/desenvolvedor";
+import { Desenvolvedor } from "../business/entities/Desenvolvedor";
 
 export class InserirDesenvolvedorController {
   async inserir(request: Request, response: Response) {
@@ -13,6 +13,7 @@ export class InserirDesenvolvedorController {
       hobby,
       sexo,
     } as Desenvolvedor);
+    response.status(201);
     return response.json(dev);
   }
 }

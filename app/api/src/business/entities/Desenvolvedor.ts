@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, AfterLoad } from "typeorm";
 import moment from "moment";
 import { IsDate, MinLength } from "class-validator";
-import { sexoValido } from "../customValidators/validaSexo";
+import { sexoValido } from "../customValidators/ValidarSexo";
 
 @Entity("DESENVOLVEDORES")
 export class Desenvolvedor {
@@ -17,7 +17,7 @@ export class Desenvolvedor {
   @MinLength(1)
   nome: string;
 
-  @Column({ type: "char" })
+  @Column({ type: "varchar", length: 1 })
   @sexoValido()
   sexo: string;
 

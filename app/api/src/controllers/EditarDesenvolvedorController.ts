@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { EditarDesenvolvedorService } from "../services/EditarDesenvolvedorService";
-import { Desenvolvedor } from "../entities/desenvolvedor";
+import { Desenvolvedor } from "../business/entities/Desenvolvedor";
 
 export class EditarDesenvolvedorController {
   async editar(request: Request, response: Response) {

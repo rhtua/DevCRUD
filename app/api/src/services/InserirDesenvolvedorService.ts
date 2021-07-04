@@ -1,8 +1,9 @@
-import { DesenvolvedorRepository } from "../repositories/DesenvolvedorRepository";
+import { DesenvolvedorRepository } from "../business/repositories/DesenvolvedorRepository";
 import { getCustomRepository } from "typeorm";
-import { validarDesenvolvedor } from "../customValidators/validarDesenvolvedor";
-import { Desenvolvedor } from "../entities/desenvolvedor";
+import { validarDesenvolvedor } from "../business/customValidators/ValidarDesenvolvedor";
+import { Desenvolvedor } from "../business/entities/Desenvolvedor";
 import moment from "moment";
+import { ErroBadRequest } from "../infra/http/errors/erroBadRequest";
 
 export class InserirDesenvolvedorService {
   async inserir({ nome, dataNascimento, hobby, sexo }: Desenvolvedor) {
@@ -12,16 +13,16 @@ export class InserirDesenvolvedorService {
 
     const desenvolvedorJaExiste = await desenvolvedorRepository.findOne({
       nome: nome,
-      dataNascimento: moment(dataNascimento).toDate(),
+      dataNascimento: moment(dataNascimento, "YYYY-MM-DD", true).toDate(),
     });
 
     if (desenvolvedorJaExiste) {
-      throw new Error("Desenvolvedor já cadastrado");
+      throw new ErroBadRequest("Desenvolvedor já cadastrado");
     }
 
     const desenvolvedorNovo = desenvolvedorRepository.create({
       nome: nome,
-      dataNascimento: moment(dataNascimento).toDate(),
+      dataNascimento: moment(dataNascimento, "YYYY-MM-DD", true).toDate(),
       hobby: hobby,
       sexo: sexo,
     });

@@ -3,7 +3,7 @@ import "express-async-errors";
 import express, { Express, NextFunction, Request, Response } from "express";
 import "reflect-metadata";
 import { router } from "./routes";
-import { ErroBase } from "./infra/http/errors/erroBase";
+import { ErrorBase } from "./infra/http/errors/errorBase";
 import { statusHttp } from "./infra/http/statushttp";
 
 export class Server {
@@ -21,7 +21,7 @@ export class Server {
         response: Response,
         next: NextFunction
       ) => {
-        if (err instanceof ErroBase) {
+        if (err instanceof ErrorBase) {
           return response.status(err.statusCode).json({
             error: err.message,
           });

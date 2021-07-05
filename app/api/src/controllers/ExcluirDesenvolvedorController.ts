@@ -7,7 +7,7 @@ export class ExcluirDesenvolvedorController {
     const dev = await excluirDevService.excluir(
       Number.parseInt(request.params.id)
     );
-
+    response.status(204);
     return response.json(dev);
   }
 }

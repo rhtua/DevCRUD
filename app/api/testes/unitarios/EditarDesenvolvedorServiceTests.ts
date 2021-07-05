@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { assert, expect } from "chai";
-import { bdConnection } from "../infra/bdConnection";
+import { bancoEmMemoria } from "../infra/conexoes";
 import { Connection } from "typeorm";
 import { EditarDesenvolvedorService } from "../../src/services/EditarDesenvolvedorService";
 import { ObterDesenvolvedorService } from "../../src/services/ObterDesenvolvedorService";
@@ -15,7 +15,7 @@ describe("EditarDesenvolvedorServiceTests", () => {
     "Os campos nome, sexo, hobby, dataNascimento estão preenchidos incorretamente!";
 
   before(async () => {
-    conexao = await bdConnection();
+    conexao = await bancoEmMemoria();
     editarService = new EditarDesenvolvedorService();
     obterService = new ObterDesenvolvedorService();
   });
@@ -34,7 +34,8 @@ describe("EditarDesenvolvedorServiceTests", () => {
 
     expect(desenvolvedorEditado.nome).to.be.equal(novoNome);
     expect(desenvolvedorEditado.hobby).to.be.equal(novoHobby);
-    expect(desenvolvedorEditado.dataNascimento).to.be.equal(
+    assert.deepEqual(
+      desenvolvedorEditado.dataNascimento,
       desenvolvedor.dataNascimento
     );
     expect(desenvolvedorEditado.sexo).to.be.equal(desenvolvedor.sexo);

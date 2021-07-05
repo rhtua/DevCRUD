@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { assert, expect } from "chai";
-import { bdConnection } from "../infra/bdConnection";
+import { bancoEmMemoria } from "../infra/conexoes";
 import { Connection } from "typeorm";
 import { ObterDesenvolvedoresService } from "../../src/services/ObterDesenvolvedoresService";
 import { Desenvolvedor } from "../../src/business/entities/Desenvolvedor";
@@ -11,7 +11,7 @@ describe("ObterDesenvolvedoresServiceTests", () => {
   const REGISTROS_TOTAIS = 20;
 
   before(async () => {
-    conexao = await bdConnection();
+    conexao = await bancoEmMemoria();
     service = new ObterDesenvolvedoresService();
   });
 

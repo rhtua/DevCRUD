@@ -1,18 +1,18 @@
 import { describe } from "mocha";
 import { assert, expect } from "chai";
-import { bdConnection } from "../infra/bdConnection";
+import { bancoEmMemoria } from "../infra/conexoes";
 import { Connection } from "typeorm";
 import { ExcluirDesenvolvedorService } from "../../src/services/ExcluirDesenvolvedorService";
 import { Desenvolvedor } from "../../src/business/entities/Desenvolvedor";
 
-describe("ObterDesenvolvedorServiceTests", () => {
+describe("ExcluirDesenvolvedorServiceTests", () => {
   let conexao: Connection;
   let service: ExcluirDesenvolvedorService;
   const REGISTROS_TOTAIS = 20;
   const ERRO_NAO_ENCONTRADO = "Não foi possivel deletar";
 
   before(async () => {
-    conexao = await bdConnection();
+    conexao = await bancoEmMemoria();
     service = new ExcluirDesenvolvedorService();
   });
 

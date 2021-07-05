@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { assert } from "chai";
-import { bdConnection } from "../infra/bdConnection";
+import { bancoEmMemoria } from "../infra/conexoes";
 import { ObterDesenvolvedoresPorQueryEPaginacaoService } from "../../src/services/ObterDesenvolvedoresPorQueryEPaginacaoService";
 import { Connection } from "typeorm";
 
@@ -14,7 +14,7 @@ describe("ObterDesenvolvedoresPorQueryEPaginacaoServiceTestes", () => {
   const ERRO_TERMO = "O termo deve conter uma propriedade válida";
 
   before(async () => {
-    conexao = await bdConnection();
+    conexao = await bancoEmMemoria();
     service = new ObterDesenvolvedoresPorQueryEPaginacaoService();
   });
 
@@ -53,7 +53,7 @@ describe("ObterDesenvolvedoresPorQueryEPaginacaoServiceTestes", () => {
   });
 
   it("Deve retornar desenvolvedores com o nome Jose", async () => {
-    const nome = "Jose";
+    const nome = "Valdisney";
 
     const desenvolvedores = await service.buscar(
       undefined,

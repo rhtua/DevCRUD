@@ -1,6 +1,6 @@
 import { describe } from "mocha";
 import { assert, expect } from "chai";
-import { bdConnection } from "../infra/bdConnection";
+import { bancoEmMemoria } from "../infra/conexoes";
 import { Connection } from "typeorm";
 import { ObterDesenvolvedorService } from "../../src/services/ObterDesenvolvedorService";
 
@@ -11,7 +11,7 @@ describe("ObterDesenvolvedorServiceTests", () => {
   const ERRO_NAO_ENCONTRADO = "Desenvolvedor não encontrado";
 
   before(async () => {
-    conexao = await bdConnection();
+    conexao = await bancoEmMemoria();
     service = new ObterDesenvolvedorService();
   });
 

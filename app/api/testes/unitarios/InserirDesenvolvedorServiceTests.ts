@@ -1,13 +1,13 @@
 import { describe } from "mocha";
 import { assert, expect } from "chai";
-import { bdConnection } from "../infra/bdConnection";
+import { bancoEmMemoria } from "../infra/conexoes";
 import { Connection } from "typeorm";
 import * as faker from "faker";
 import { InserirDesenvolvedorService } from "../../src/services/InserirDesenvolvedorService";
 import moment from "moment";
 import { Desenvolvedor } from "../../src/business/entities/Desenvolvedor";
 
-describe("EditarDesenvolvedorServiceTests", () => {
+describe("InserirDesenvolvedorServiceTests", () => {
   let conexao: Connection;
   let service: InserirDesenvolvedorService;
   const REGISTROS_TOTAIS = 20;
@@ -16,7 +16,7 @@ describe("EditarDesenvolvedorServiceTests", () => {
   const ERRO_JA_EXISTE = "Desenvolvedor já cadastrado";
 
   before(async () => {
-    conexao = await bdConnection();
+    conexao = await bancoEmMemoria();
     service = new InserirDesenvolvedorService();
   });
 

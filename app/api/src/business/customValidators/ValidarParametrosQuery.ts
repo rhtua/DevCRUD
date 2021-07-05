@@ -21,7 +21,15 @@ export function ValidarParametrosQuery(
   }
 
   if (limite !== undefined && pagina !== undefined) {
-    if (isNaN(Number.parseInt(pagina)) || isNaN(Number.parseInt(limite))) {
+    const numeroPagina = Number.parseInt(pagina);
+    const numeroLimite = Number.parseInt(limite);
+
+    if (
+      isNaN(numeroPagina) ||
+      isNaN(numeroLimite) ||
+      numeroLimite < 1 ||
+      numeroPagina < 1
+    ) {
       throw new ErroNotFound(
         "Valores inseridos para página e/ou limite incorretos"
       );

@@ -5,7 +5,7 @@ import moment from "moment/moment";
 export function GerarDevs() {
   return [
     {
-      nome: `Jose ${faker.name.lastName()}`,
+      nome: `Valdisney ${faker.name.lastName()}`,
       hobby: faker.company.bs(),
       sexo: faker.random.arrayElement(["M", "F"]),
       dataNascimento: faker.date.past(),

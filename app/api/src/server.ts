@@ -13,6 +13,7 @@ export class Server {
   constructor() {
     this.api = express();
     this.api.use(cors());
+    this.api.use(express.static("public"));
     this.api.use(express.json());
     this.api.use(router);
 

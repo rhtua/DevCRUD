@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: node-dev
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - dbinfo:/var/lib/mysql
+    networks:
+      - bridge
+  devcrud:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: localhost
+      DB_PORT: 3306
+      DB_USER: admin
+      DB_PASS: admin
+      DB_NAME: node-dev
+    networks:
+      - bridge
+    depends_on:
+      - db
+
+networks:
+  bridge:
+    driver: "bridge"
+
+volumes:
+  dbinfo:

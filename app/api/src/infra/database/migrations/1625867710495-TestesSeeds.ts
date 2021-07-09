@@ -3,7 +3,7 @@ import { Developer } from "../../../business/entities/Developer";
 import { GenerateDevelopers } from "../../../../testes/infra/RandomDataGenerator";
 import { DeveloperRepository } from "../../../business/repositories/DeveloperRepository";
 
-export class TestsSeed1625306997479 implements MigrationInterface {
+export class TestesSeeds1625867710495 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     let desenvolvedoresAutoGerados = () => {
       let lista: Developer[] = [];

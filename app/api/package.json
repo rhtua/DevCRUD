@@ -8,8 +8,9 @@
   "private": false,
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register './testes/**/*.ts'"
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register './testes/**/*.ts'",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/chai": "^4.2.19",
@@ -37,6 +38,7 @@
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
     "sqlite3": "^5.0.2",
+    "ts-node": "^10.0.0",
     "typeorm": "^0.2.34"
   }
 }

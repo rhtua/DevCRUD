@@ -1,6 +1,6 @@
 import { Connection, createConnection } from "typeorm";
 import { Developer } from "../../src/business/entities/Developer";
-import { TestsSeed1625306997479 } from "../../src/infra/database/migrations/1625306997479-TestsSeed";
+import { TestesSeeds1625867710495 } from "../../src/infra/database/migrations/1625867710495-TestesSeeds";
 
 export async function emulatedDatabase(): Promise<Connection> {
   return await createConnection({
@@ -10,7 +10,7 @@ export async function emulatedDatabase(): Promise<Connection> {
     logging: false,
     dropSchema: true,
     synchronize: true,
-    migrations: [TestsSeed1625306997479],
+    migrations: [TestesSeeds1625867710495],
     migrationsRun: true,
   });
 }

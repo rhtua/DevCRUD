@@ -40,7 +40,7 @@ describe("Método GET /developers", () => {
 
     request(server)
       .get("/developers")
-      .query({ pagina: totalPages, limite: resultsPerPage })
+      .query({ page: totalPages, limit: resultsPerPage })
       .expect("Content-Type", /json/)
       .expect(200)
       .end((error, res) => {
@@ -56,7 +56,7 @@ describe("Método GET /developers", () => {
   it("Deve filtrar os desenvolvedores de acordo com os parametros", (done) => {
     request(server)
       .get("/developers")
-      .query({ termo: "nome", busca: COMMON_NAME })
+      .query({ field: "nome", value: COMMON_NAME })
       .expect("Content-Type", /json/)
       .expect(200)
       .end((error, res) => {
@@ -74,7 +74,7 @@ describe("Método GET /developers", () => {
 
     request(server)
       .get("/developers")
-      .query({ termo: "teste", busca: COMMON_NAME })
+      .query({ field: "teste", value: COMMON_NAME })
       .expect("Content-Type", /json/)
       .expect(404)
       .end((error, res) => {
@@ -93,7 +93,7 @@ describe("Método GET /developers", () => {
 
     request(server)
       .get("/developers")
-      .query({ pagina: -1, limite: "P" })
+      .query({ page: -1, limit: "P" })
       .expect("Content-Type", /json/)
       .expect(404)
       .end((error, res) => {

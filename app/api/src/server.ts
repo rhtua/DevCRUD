@@ -5,12 +5,14 @@ import "reflect-metadata";
 import { router } from "./routes";
 import { ErrorBase } from "./infra/http/errors/errorBase";
 import { statusHttp } from "./infra/http/statushttp";
+import cors from "cors";
 
 export class Server {
   api: Express;
 
   constructor() {
     this.api = express();
+    this.api.use(cors());
     this.api.use(express.json());
     this.api.use(router);
 
@@ -35,7 +37,7 @@ export class Server {
     );
   }
 
-  listen(port: number = 3000, callback?: () => void) {
+  listen(port: number = 3001, callback?: () => void) {
     this.api.listen(port, callback);
   }
 }

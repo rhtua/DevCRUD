@@ -1,0 +1,40 @@
+@charset "utf-8"
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Varela+Round&display=swap')
+
+// Set your brand colors
+$dark-blue: #1B4E8D
+$orange: #FFA000
+$normal-blue: #4275FF
+$blue: #BABABA
+$grey: #BABABA
+$light-blue: #F3F2FF
+
+
+// Update Bulma's global variables
+$primary: $orange
+$navbar-background-color: $normal-blue
+$family-sans-serif: "Nunito", sans-serif
+$widescreen-enabled: false
+$fullhd-enabled: false
+$info: $dark-blue
+
+// Update some of Bulma's component variables
+$body-background-color: $light-blue
+$control-border-width: 2px
+
+html
+  overflow-y: auto !important
+.main
+  .button
+    border-radius: 10px
+    margin: 1px 5px 1px 5px
+    font: 600 1rem "Nunito"
+
+  height: 100vh
+  width: 100vw
+
+  //overflow: hidden !important
+// Import only what you need from Bulma
+@import "~bulma/bulma"

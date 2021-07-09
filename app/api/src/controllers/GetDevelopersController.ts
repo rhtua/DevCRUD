@@ -9,10 +9,10 @@ export class GetDevelopersController {
         new GetDevelopersByQueryStringPaginated();
       const params = request.query;
       const dev = await getDevelopersByQueryStringPaginated.search(
-        params.pagina as string,
-        params.limite as string,
-        params.termo as string,
-        params.busca as string
+        params.page as string,
+        params.limit as string,
+        params.field as string,
+        params.value as string
       );
 
       return response.json(dev);

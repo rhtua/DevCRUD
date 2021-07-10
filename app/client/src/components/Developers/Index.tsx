@@ -21,7 +21,14 @@ export function Developers() {
     <div className="is-flex is-flex-direction-column contain is-justify-content-space-between">
       <div className="is-flex is-flex-direction-row">
         <div className="is-flex section is-align-items-center is-justify-content-center">
-          <button className="button" onClick={() => paginate(search.page - 1)}>
+          <button
+            className="button"
+            onClick={() => {
+              if (search.page > 1) {
+                paginate(search.page - 1);
+              }
+            }}
+          >
             <span className="icon">
               <FontAwesomeIcon size="2x" icon={faAngleLeft} />
             </span>

@@ -30,7 +30,7 @@ export function DevCard({
 
   return (
     <div className="card is-flex dev-card is-align-items-center is-flex-wrap-wrap is-justify-content-space-between">
-      <div className="is-flex">
+      <div className="is-flex user-info">
         <div className="is-flex user">
           <img src={userLogo} alt="Imagem usuário" />
         </div>

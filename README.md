@@ -20,6 +20,10 @@ Prototipei as telas, escolhi paletas e frameworks css para poder compor o projet
     <a href="https://nodejs.org/pt-br/">🔗 Node</a>
 </h1>
 
+## Para executar o app
+
+Executar o comando `docker-compose up` e a aplicação será exposta na porta 3001. Para encerrar, basta utilizar o comando `docker-compose down`. Possíveis conflitos do container com o banco MariaDB utilizado, resolvem-se ao encerrar e subir a aplicação novamente.
+
 ## Status
 <h4 align="center"> 
 	🚧  DevCRUD 🚀 Concluído, mas...  🚧

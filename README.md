@@ -24,6 +24,10 @@ Prototipei as telas, escolhi paletas e frameworks css para poder compor o projet
 
 Executar o comando `docker-compose up` e a aplicação será exposta na porta 3001. Para encerrar, basta utilizar o comando `docker-compose down`. Possíveis conflitos do container com o banco MariaDB utilizado, resolvem-se ao encerrar e subir a aplicação novamente.
 
+## Aplicação Funcional
+
+Um demo do app foi ao ar e pode ser acessado por [aqui](https://dev.rhtua.com.br/)
+
 ## Status
 <h4 align="center"> 
 	🚧  DevCRUD 🚀 Concluído, mas...  🚧

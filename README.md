@@ -26,7 +26,7 @@ Executar o comando `docker-compose up` e a aplicação será exposta na porta 30
 
 ## Aplicação Funcional
 
-Um demo do app foi ao ar e pode ser acessado por [aqui](https://dev.rhtua.com.br/)
+Um demo do app foi ao ar e pode ser acessado por [aqui](https://dev.rhtua.com.br/). Sinta-se livre para acessá-lo também pelo celular e visualizar a aplciação redimensionada propriamente em um mobile.
 
 ## Status
 <h4 align="center"> 
